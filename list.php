@@ -9,7 +9,7 @@ if (!$conn) {
     die("Connection failed" . mysqli_connect_error());
 }
 
-$sql = "SELECT * FROM pokemon";
+$sql = "SELECT * FROM pokemon ORDER BY numero";
 $result = mysqli_query($conn, $sql);
 
 $pokemonList = array();
