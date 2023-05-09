@@ -14,12 +14,12 @@
                         <img src="https://www.pngall.com/wp-content/uploads/4/Pokeball-PNG-Free-Download.png" alt="Logo" width="50em" class="d-inline-block align-text-top">
                         Pokedex
                     </a>
-                    <form class="d-flex">
-                        <label for="exampleFormControlInput1" class="col-form-label">Correo Electronico</label>
-                        <input type="email" class="rounded" placeholder="admin@admin.com">
-                        <label for="exampleFormControlInput1" class="col-form-label">Contrasaeña</label>
-                        <input type="password" class="rounded" placeholder="contraseña">
-                        <button class="btn bg-warning text-white" type="submit">Iniciar Sesion</button>
+                    <form class="d-flex" method="post" enctype="application/x-www-form-urlencoded" action="">
+                        <label for="exampleFormControlInput1" class="col-form-label text-white mx-2">Correo Electronico</label>
+                        <input type="email" class="rounded border-0 p-1" placeholder="admin@admin.com">
+                        <label for="exampleFormControlInput1" class="col-form-label text-white mx-2">Contrasaeña</label>
+                        <input type="password" class="rounded border-0 p-1" placeholder="contraseña">
+                        <button class="btn bg-warning text-white mx-2" type="submit">Iniciar Sesion</button>
                     </form>
                 </div>
             </nav>
