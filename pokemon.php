@@ -20,6 +20,8 @@ if (mysqli_num_rows($result) > 0) {
         $param['nombre'] = $row['nombre'];
         $param['tipo'] = $row['tipo'];
         $param['foto'] = $row['foto'];
+        $param['descripcion'] = $row['descripcion'];
+        $param['numero'] = $row['numero'];
         $pokemon[] = $param;
     }
 }
@@ -29,9 +31,10 @@ include 'header.php';
     <table class="table">
         <thead>
         <tr>
-            <th scope="col">ID Pokemon</th>
+            <th scope="col">Numero</th>
             <th scope="col">Nombre</th>
             <th scope="col">Tipo</th>
+            <th scope="col">Descripcion</th>
             <th scope="col">Foto</th>
         </tr>
         </thead>
@@ -39,9 +42,10 @@ include 'header.php';
         <?php
         foreach ($pokemon as $param){
             echo "<tr>
-                    <td>" . $param['id_pokemon'] ."</td>
+                    <td>" . $param['numero'] ."</td>
                     <td>" . $param['nombre'] ."</td>
                     <td> <img src=img/type/" . strtoupper($param['tipo']) . ".jpg width='100em'></td>
+                    <td>" . $param['descripcion'] ."</td>
                     <td><img src=" . $param['foto'] . "alt=" . $param['id_pokemon'] . "></td>";
         }
         ?>
