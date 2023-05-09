@@ -9,8 +9,9 @@ include 'header.php';
     ?>
     <section class="container mx-auto mt-3">
         <form class="d-flex" role="search" method="post" enctype="application/x-www-form-urlencoded" action="search.php">
-            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" name="nombrePokemon" id="nombrePokemon">
-            <button class="btn bg-warning text-white" type="submit">Buscar</button>
+                <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" name="nombrePokemon" id="nombrePokemon">
+                <button class="btn bg-warning text-white" type="submit">Buscar</button>
+            <a href="create.php" style="margin-left: 1em" class="btn bg-success text-white">Crear</a>
         </form>
     </section>
     <?php
