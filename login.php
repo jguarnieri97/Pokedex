@@ -13,14 +13,17 @@ if(isset($_POST['user']) && isset($_POST['password'])){
     $sql = "SELECT * FROM usuario WHERE nombre LIKE '". $_POST['user'] ."'";
     $userResult = mysqli_query($conn, $sql);
 
-    $sql = "SELECT * FROM usuario WHERE contraseña LIKE '". $_POST['password'] ."'";
-    $passResult = mysqli_query($conn, $sql);
+    $user = mysqli_fetch_assoc($userResult);
 
-    if(mysqli_num_rows($userResult) > 0 && mysqli_num_rows($passResult) > 0){
+    if($user['nombre'] == $_POST['user'] && $user['contraseña'] == $_POST['password'] && $user['admin'] == 1){
         session_start();
         $_SESSION['user'] = 'admin';
         header('Location: index.php');
-    } else{
+    } else if($user['nombre'] == $_POST['user'] && $user['contraseña'] == $_POST['password'] && $user['admin'] == 0){
+        session_start();
+        $_SESSION['user'] = 'user';
+        header('Location: index.php');
+    }else{
         header('Location: index.php?errorUsuario=1');
     }
 }

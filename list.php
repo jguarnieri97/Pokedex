@@ -45,7 +45,7 @@ mysqli_close($conn);
                 <th scope="col">Tipo</th>
                 <th scope="col">Foto</th>
                 <?php
-                if(isset($_SESSION['user'])) {
+                if(isset($_SESSION['user']) && $_SESSION['user'] == 'admin') {
                     echo '<th scope="col">Acciones</th>';
                 }
                 ?>
@@ -59,7 +59,7 @@ mysqli_close($conn);
                     <td>" . $pokemon['nombre'] ."</td>
                     <td> <img src=img/type/" . strtoupper($pokemon['tipo']) . ".jpg width='100em'></td>
                     <td><img src=" . $pokemon['foto'] . "alt=" . $pokemon['id_pokemon'] . "></td>";
-                    if(isset($_SESSION['user'])){
+                    if(isset($_SESSION['user']) && $_SESSION['user'] == 'admin'){
                          echo "<td> 
                         <a class='btn btn-primary' href=''>Modificar</a>
                         <a class='btn btn-danger' href='delete.php?id=" . $pokemon['id_pokemon'] . "'>Borrar</a>
