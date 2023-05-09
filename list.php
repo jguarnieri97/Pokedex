@@ -44,7 +44,11 @@ mysqli_close($conn);
                 <th scope="col">Nombre</th>
                 <th scope="col">Tipo</th>
                 <th scope="col">Foto</th>
-                <th scope="col">Acciones</th>
+                <?php
+                if(isset($_SESSION['user'])) {
+                    echo '<th scope="col">Acciones</th>';
+                }
+                ?>
             </tr>
         </thead>
         <tbody class="text-center">
@@ -54,11 +58,13 @@ mysqli_close($conn);
                     <td>" . $pokemon['numero'] ."</td>
                     <td>" . $pokemon['nombre'] ."</td>
                     <td> <img src=img/type/" . strtoupper($pokemon['tipo']) . ".jpg width='100em'></td>
-                    <td><img src=" . $pokemon['foto'] . "alt=" . $pokemon['id_pokemon'] . "></td>
-                    <td> 
+                    <td><img src=" . $pokemon['foto'] . "alt=" . $pokemon['id_pokemon'] . "></td>";
+                    if(isset($_SESSION['user'])){
+                         echo "<td> 
                         <a class='btn btn-primary' href=''>Modificar</a>
                         <a class='btn btn-danger' href='delete.php?id=" . $pokemon['id_pokemon'] . "'>Borrar</a>
                     </td>";
+                    }
             }
             ?>
         </tbody>

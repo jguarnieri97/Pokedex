@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -14,13 +17,20 @@
                         <img src="https://www.pngall.com/wp-content/uploads/4/Pokeball-PNG-Free-Download.png" alt="Logo" width="50em" class="d-inline-block align-text-top">
                         Pokedex
                     </a>
-                    <form class="d-flex" method="post" enctype="application/x-www-form-urlencoded" action="">
-                        <label for="exampleFormControlInput1" class="col-form-label text-white mx-2">Correo Electronico</label>
-                        <input type="email" class="rounded border-0 p-1" placeholder="admin@admin.com">
+                    <?php
+                    if(!isset($_SESSION['user'])){
+                        echo '<form class="d-flex" method="post" enctype="application/x-www-form-urlencoded" action="login.php">
+                        <label for="exampleFormControlInput1" class="col-form-label text-white mx-2">Usuario</label>
+                        <input type="text" class="rounded border-0 p-2" placeholder="usuario" name="user">
                         <label for="exampleFormControlInput1" class="col-form-label text-white mx-2">Contrasaeña</label>
-                        <input type="password" class="rounded border-0 p-1" placeholder="contraseña">
+                        <input type="password" class="rounded border-0 p-2" placeholder="contraseña" name="password">
                         <button class="btn bg-warning text-white mx-2" type="submit">Iniciar Sesion</button>
-                    </form>
+                    </form>';
+                    } else{
+                        echo '<a class="btn bg-warning text-white mx-2" href="login.php?close=1">Cerrar Sesion</a>';
+                    }
+
+                    ?>
                 </div>
             </nav>
         </header>
