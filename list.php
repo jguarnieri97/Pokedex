@@ -32,6 +32,10 @@ mysqli_close($conn);
         if($_GET['error'] != "")
         echo  '<div class="alert alert-warning" role="alert">' . $_GET['error'] . ' no existe.</div>';
     }
+    if(isset($_GET['errDB'])){
+        if($_GET['errDb'] == "1")
+            echo  '<div class="alert alert-warning" role="alert">No se pudo borrar el Pokemon.</div>';
+    }
     ?>
     <table class="table">
         <thead class="text-center">
@@ -40,6 +44,7 @@ mysqli_close($conn);
                 <th scope="col">Nombre</th>
                 <th scope="col">Tipo</th>
                 <th scope="col">Foto</th>
+                <th scope="col">Acciones</th>
             </tr>
         </thead>
         <tbody class="text-center">
@@ -50,7 +55,10 @@ mysqli_close($conn);
                     <td>" . $pokemon['nombre'] ."</td>
                     <td> <img src=img/type/" . strtoupper($pokemon['tipo']) . ".jpg width='100em'></td>
                     <td><img src=" . $pokemon['foto'] . "alt=" . $pokemon['id_pokemon'] . "></td>
-                    <td> <a href='delete.php?id=" . $pokemon['id_pokemon'] . "'>Borrar</a></td>";
+                    <td> 
+                        <a class='btn btn-primary' href=''>Modificar</a>
+                        <a class='btn btn-danger' href='delete.php?id=" . $pokemon['id_pokemon'] . "'>Borrar</a>
+                    </td>";
             }
             ?>
         </tbody>
