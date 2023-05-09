@@ -20,6 +20,7 @@ if (mysqli_num_rows($result) > 0) {
         $pokemon['nombre'] = $row['nombre'];
         $pokemon['tipo'] = $row['tipo'];
         $pokemon['foto'] = $row['foto'];
+        $pokemon['numero'] = $row['numero'];
         $pokemonList[] = $pokemon;
     }
 }
@@ -35,7 +36,7 @@ mysqli_close($conn);
     <table class="table">
         <thead class="text-center">
             <tr class="bg-warning text-white">
-                <th scope="col">ID Pokemon</th>
+                <th scope="col">Numero</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Tipo</th>
                 <th scope="col">Foto</th>
@@ -45,10 +46,11 @@ mysqli_close($conn);
             <?php
             foreach ($pokemonList as $pokemon){
                 echo "<tr>
-                    <td>" . $pokemon['id_pokemon'] ."</td>
+                    <td>" . $pokemon['numero'] ."</td>
                     <td>" . $pokemon['nombre'] ."</td>
                     <td> <img src=img/type/" . strtoupper($pokemon['tipo']) . ".jpg width='100em'></td>
-                    <td><img src=" . $pokemon['foto'] . "alt=" . $pokemon['id_pokemon'] . "></td>";
+                    <td><img src=" . $pokemon['foto'] . "alt=" . $pokemon['id_pokemon'] . "></td>
+                    <td> <a href='delete.php?id=" . $pokemon['id_pokemon'] . "'>Borrar</a></td>";
             }
             ?>
         </tbody>
