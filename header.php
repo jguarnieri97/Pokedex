@@ -13,21 +13,21 @@ session_start();
         <header>
             <nav class="navbar bg-danger">
                 <div class="container-fluid">
-                    <a class="navbar-brand text-white align-items-center" href="index.php">
+                    <a class="navbar-brand text-white align-items-center fw-bold" href="index.php">
                         <img src="https://www.pngall.com/wp-content/uploads/4/Pokeball-PNG-Free-Download.png" alt="Logo" width="50em" class="d-inline-block align-text-top">
                         Pokedex
                     </a>
                     <?php
                     if(!isset($_SESSION['user'])){
                         echo '<form class="d-flex" method="post" enctype="application/x-www-form-urlencoded" action="login.php">
-                        <label for="exampleFormControlInput1" class="col-form-label text-white mx-2">Usuario</label>
-                        <input type="text" class="rounded border-0 p-2" placeholder="usuario" name="user">
-                        <label for="exampleFormControlInput1" class="col-form-label text-white mx-2">Contrasaeña</label>
-                        <input type="password" class="rounded border-0 p-2" placeholder="contraseña" name="password">
-                        <button class="btn bg-warning text-white mx-2" type="submit">Iniciar Sesion</button>
+                        <label for="exampleFormControlInput1" class="col-form-label text-white mx-2 fw-bold">Usuario</label>
+                        <input type="text" class="rounded border-0 p-2 fw-bold" placeholder="usuario" name="user">
+                        <label for="exampleFormControlInput1" class="col-form-label text-white mx-2 fw-bold">Contrasaeña</label>
+                        <input type="password" class="rounded border-0 p-2 fw-bold" placeholder="contraseña" name="password">
+                        <button class="btn bg-warning text-white mx-2 fw-bold" type="submit">Iniciar Sesion</button>
                     </form>';
                     } else{
-                        echo '<a class="btn bg-warning text-white mx-2" href="login.php?close=1">Cerrar Sesion</a>';
+                        echo '<a class="btn bg-warning text-white mx-2 fw-bold" href="login.php?close=1">Cerrar Sesion</a>';
                     }
 
                     ?>

@@ -39,7 +39,7 @@ mysqli_close($conn);
     ?>
     <table class="table">
         <thead class="text-center">
-            <tr class="bg-warning text-white">
+            <tr class="bg-danger text-white">
                 <th scope="col">Numero</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Tipo</th>
@@ -51,7 +51,7 @@ mysqli_close($conn);
                 ?>
             </tr>
         </thead>
-        <tbody class="text-center">
+        <tbody class="text-center bg-dark fw-bold text-white">
             <?php
             foreach ($pokemonList as $pokemon){
                 echo "<tr>

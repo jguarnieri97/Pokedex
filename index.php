@@ -7,7 +7,7 @@ include 'header.php';
         echo '<div class="alert alert-warning"> Usuario o contraseña incorrecta. </div>';
     }
     ?>
-    <section class="container mx-auto mt-3">
+    <section class="container mx-auto my-5">
         <form class="d-flex" role="search" method="post" enctype="application/x-www-form-urlencoded" action="search.php">
                 <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" name="nombrePokemon" id="nombrePokemon">
                 <button class="btn bg-warning text-white" type="submit">Buscar</button>
