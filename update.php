@@ -60,39 +60,46 @@ if (isset($_POST["numero"]) && isset($_POST["nombre"]) && isset($_POST["tipo"]) 
                     $sql = "SELECT * FROM pokemon WHERE ID_POKEMON = " . $_GET["id_pokemon"];
                     $result = mysqli_query($conn, $sql);
                     $pokemon = mysqli_fetch_assoc($result);
-                echo "<form class='d-flex flex-column' method='post' action='update.php?id_pokemon={$_GET["id_pokemon"]}'>";
-                    echo "<div>
-                    <label for='num-pokemon'>numero</label>
-                    <input type='number' class='rounded border-1 p-1' id='num-pokemon' name='numero' value='{$pokemon["numero"]}'>
-                </div>
-                <br>
-                <div>
-                    <label for='nom-pokemon'>nombre</label>
-                    <input type='text' class='rounded border-1 p-1' id='nom-pokemon' name='nombre' value='{$pokemon["nombre"]}'>
-                </div>
-                <br>
-                <div>
-                    <label for='type-pokemon'>tipo</label>
-                    <select class='rounded border-1 p-1' id='type-pokemon' name='tipo'>
-                        <option selected = ({$pokemon["tipo"]} == 'fuego' ? true : false) value='fuego'>Fuego</option>
-                        <option selected = ({$pokemon["tipo"]} == 'agua' ? true : false) value='agua'>Agua</option>
-                        <option selected = ({$pokemon["tipo"]} == 'hierva' ? true : false) value='hierba'>Hierba</option>
-                    </select>
-                </div>
-                <br>
-                <div>
-                    <label for='desc-pokemon'>descripcion</label>
-                    <input type='text' class='rounded border-1 p-1' id='desc-pokemon' name='descripcion' value='{$pokemon["descripcion"]}'>
-                </div>
-                <br>
-                <div>
-                    <label for='img-pokemon'>foto</label>
-                    <input type='text' class='rounded border-1 p-1' id='img-pokemon' name='imagen' value='{$pokemon["foto"]}'>
-                </div>
-                <br>
-                <div>
-                    <button class='btn bg-warning text-white' type='submit'>Modificar</button>
-                </div>";
+                echo "<div class='container bg-dark p-5 rounded text-center'>
+                        <h2 class='bg-danger p-5 text-white rounded'>Modifica a " . $pokemon["nombre"] ."</h2>
+                      </div>
+                      <article class='container bg-dark p-5 rounded'>
+                      <form class='container bg-danger rounded p-5 text-white fw-bold' method='post' action='update.php?id_pokemon={$_GET["id_pokemon"]}'>";
+                    echo "
+                        <div class='container'>
+                            <div class='d-flex justify-content-between'>
+                                <label for='num-pokemon'>Número:</label>
+                                <input type='number' class='rounded p-1 border-0' id='num-pokemon' name='numero' value='{$pokemon["numero"]}'>
+                            </div>
+                            <br>
+                            <div class='d-flex justify-content-between'>
+                                <label for='nom-pokemon'>Nombre:</label>
+                                <input type='text' class='rounded p-1 border-0' id='nom-pokemon' name='nombre' value='{$pokemon["nombre"]}'>
+                            </div>
+                            <br>
+                            <div class='d-flex justify-content-between'>
+                                <label for='type-pokemon'>Tipo:</label>
+                                <select class='rounded p-1 border-0' id='type-pokemon' name='tipo'>
+                                    <option selected = ({$pokemon["tipo"]} == 'fuego' ? true : false) value='fuego'>Fuego</option>
+                                    <option selected = ({$pokemon["tipo"]} == 'agua' ? true : false) value='agua'>Agua</option>
+                                    <option selected = ({$pokemon["tipo"]} == 'hierva' ? true : false) value='hierba'>Hierba</option>
+                                </select>
+                            </div>
+                            <br>
+                            <div class='d-flex justify-content-between'>
+                                <label for='desc-pokemon'>Descripción:</label>
+                                <input type='text' class='rounded p-1 border-0' id='desc-pokemon' name='descripcion' value='{$pokemon["descripcion"]}'>
+                            </div>
+                            <br>
+                            <div class='d-flex justify-content-between'>
+                                <label for='img-pokemon'>Foto:</label>
+                                <input type='text' class='rounded p-1 border-0' id='img-pokemon' name='imagen' value='{$pokemon["foto"]}'>
+                            </div>
+                            <br>
+                            <div class='text-center'>
+                                <button class='btn bg-warning text-white px-5 fw-bold' type='submit'>Modificar</button>
+                            </div>
+                        </div>";
                 }
                 ?>
             </form>
