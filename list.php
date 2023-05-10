@@ -61,7 +61,7 @@ mysqli_close($conn);
                     <td><img src=" . $pokemon['foto'] . "alt=" . $pokemon['id_pokemon'] . "></td>";
                     if(isset($_SESSION['user']) && $_SESSION['user'] == 'admin'){
                          echo "<td> 
-                        <a class='btn btn-primary' href=''>Modificar</a>
+                        <a class='btn btn-primary' href='update.php?id_pokemon=" . $pokemon['id_pokemon'] . "' >Modificar</a>
                         <a class='btn btn-danger' href='delete.php?id=" . $pokemon['id_pokemon'] . "'>Borrar</a>
                     </td>";
                     }
