@@ -91,7 +91,7 @@ if (isset($_POST["numero"]) && isset($_POST["nombre"]) && isset($_POST["tipo"]) 
                 </div>
                 <br>
                 <div>
-                    <button class='btn bg-warning text-white' type='submit'>Crear</button>
+                    <button class='btn bg-warning text-white' type='submit'>Modificar</button>
                 </div>";
                 }
                 ?>
